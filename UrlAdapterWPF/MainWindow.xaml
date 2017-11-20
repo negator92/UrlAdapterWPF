@@ -3,16 +3,21 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        DataContext="{Binding ApplicationViewModel, Source={x:Static Application.Current}}" Background="#EEEEEE"
+        DataContext="{Binding ApplicationViewModel, Source={x:Static Application.Current}}" Background="#333333"
         mc:Ignorable="d" Title="UrlAdapter" Height="250" Width="350" MinHeight="150" MinWidth="250">
     <DockPanel Margin="5">
         <DockPanel DockPanel.Dock="Top" Margin="0,0,0,5">
             <Button Command="{Binding AdaptCommand}" Margin="5,0,0,0" DockPanel.Dock="Right">
                 <TextBlock Text="Adapt" Padding="3" />
             </Button>
-            <TextBox Text="{Binding InUrl, UpdateSourceTrigger=PropertyChanged}" TextWrapping="Wrap" VerticalContentAlignment="Center"/>
+            <TextBox Text="{Binding InUrl, UpdateSourceTrigger=PropertyChanged}"
+                     TextWrapping="Wrap" VerticalContentAlignment="Center" Background="#EEEEEE" >
+            <TextBox.InputBindings>
+                <KeyBinding Command="{Binding AdaptCommand}" Key="Enter" />
+            </TextBox.InputBindings>
+        </TextBox>
         </DockPanel>
-        <TextBox Text="{Binding OutUrl}" TextWrapping="WrapWithOverflow"
-                 IsReadOnly="True" BorderThickness="0" Background="Transparent" />
+        <TextBox Text="{Binding OutUrl}" TextWrapping="WrapWithOverflow" Foreground="#EEEEEE"
+                 IsReadOnly="True" BorderThickness="0" Background="Transparent"/>
     </DockPanel>
 </Window>
