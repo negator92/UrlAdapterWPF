@@ -7,7 +7,7 @@ namespace UrlAdapterWPF
 {
     public class ApplicationViewModel : PropertyChangedClass
     {
-        public string InUrl { get; set; } = "Input url here";
+        public string InUrl { get; set; }
         public string OutUrl { get; set; } = "After pressing Adapt it would be filled with correct url";
         public ICommand AdaptCommand { get; set; }
 
